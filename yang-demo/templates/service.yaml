@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "yang-demo.fullname" . }}
+  labels:
+{{ include "yang-demo.labels" . | indent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+      nodePort: {{ .Values.service.nodeport }}
+      targetPort: 8092
+  selector:
+    app.kubernetes.io/name: {{ include "yang-demo.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
