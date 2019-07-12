@@ -1,0 +1,149 @@
+{
+  "schema": "v2",
+  "variables": [
+    {
+      "type": "string",
+      "defaultValue": "0.1.0",
+      "description": "The version of release package",
+      "name": "version"
+    }
+  ],
+  "id": "newSpelTemplate4yangdemo",
+  "protect": false,
+  "metadata": {
+    "name": "Yang Demo",
+    "description": "A demonstrative of Pipeline.",
+    "owner": "yangch3@cisco.com",
+    "scopes": [
+      "global"
+    ]
+  },
+  "pipeline": {
+    "application": "yangdemo",
+    "expectedArtifacts": [
+      {
+        "defaultArtifact": {
+          "customKind": true,
+          "id": "b44c2d0d-7eb4-4d56-8ff2-7c39032bf58a",
+          "name": "hello word helm",
+          "reference": "https://github.com/chen2319/my-helm-charts-demo/raw/master/yang-demo-${templateVariables.version}.tgz",
+          "type": "http/file"
+        },
+        "displayName": "hello-word-helm-1",
+        "id": "bf5111da-4356-4b75-b311-517ecf8cafb7",
+        "matchArtifact": {
+          "customKind": true,
+          "id": "f3577d5b-0c82-4d2a-88e9-48143285a99a",
+          "name": "hello word helm",
+          "reference": "https://github.com/chen2319/my-helm-charts-demo/raw/master/yang-demo-${templateVariables.version}.tgz",
+          "type": "http/file"
+        },
+        "useDefaultArtifact": true,
+        "usePriorArtifact": false
+      },
+      {
+        "defaultArtifact": {
+          "customKind": true,
+          "id": "2873131a-731d-49b9-a47f-9ba6329ae042",
+          "name": "hello word helm",
+          "reference": "https://raw.githubusercontent.com/chen2319/my-helm-charts-demo/master/yang_demo_values_dev.yaml",
+          "type": "http/file"
+        },
+        "displayName": "hello-word-helm-dev-yml",
+        "id": "34c55180-2055-4119-a334-4f9f12d0c649",
+        "matchArtifact": {
+          "customKind": true,
+          "id": "10fe8d84-305a-466f-bf5e-12170eb31380",
+          "name": "hello word helm",
+          "reference": "https://raw.githubusercontent.com/chen2319/my-helm-charts-demo/master/yang_demo_values_dev.yaml",
+          "type": "http/file"
+        },
+        "useDefaultArtifact": true,
+        "usePriorArtifact": false
+      }
+    ],
+    "id": "1dcde443-3229-4fec-8858-fb29794bf715",
+    "index": 3,
+    "keepWaitingPipelines": false,
+    "lastModifiedBy": "anonymous",
+    "limitConcurrent": true,
+    "name": "TestHelmDeploy",
+    "parameterConfig": [],
+    "stages": [
+      {
+        "account": "my-k8s-v2-account",
+        "cloudProvider": "kubernetes",
+        "manifestArtifactAccount": "embedded-artifact",
+        "manifestArtifactId": "d03fc016-0dd3-4ae8-b127-fde2a543447a",
+        "moniker": {
+          "app": "yangdemo"
+        },
+        "name": "Deploy (Manifest)",
+        "refId": "1",
+        "relationships": {
+          "loadBalancers": [],
+          "securityGroups": []
+        },
+        "requisiteStageRefIds": [
+          "2"
+        ],
+        "skipExpressionEvaluation": false,
+        "source": "artifact",
+        "trafficManagement": {
+          "enabled": false,
+          "options": {
+            "enableTraffic": false,
+            "services": []
+          }
+        },
+        "type": "deployManifest"
+      },
+      {
+        "evaluateOverrideExpressions": false,
+        "expectedArtifacts": [
+          {
+            "defaultArtifact": {},
+            "displayName": "yangdemo-dev-artifacts",
+            "id": "d03fc016-0dd3-4ae8-b127-fde2a543447a",
+            "matchArtifact": {
+              "name": "yangdemo-dev",
+              "type": "embedded/base64"
+            },
+            "useDefaultArtifact": false
+          }
+        ],
+        "inputArtifacts": [
+          {
+            "account": "no-auth-http-account",
+            "id": "bf5111da-4356-4b75-b311-517ecf8cafb7"
+          },
+          {
+            "account": "no-auth-http-account",
+            "id": "34c55180-2055-4119-a334-4f9f12d0c649"
+          }
+        ],
+        "name": "Bake (Manifest)",
+        "namespace": "yangdemo",
+        "outputName": "yangdemo-dev",
+        "overrides": {},
+        "refId": "2",
+        "requisiteStageRefIds": [],
+        "templateRenderer": "HELM2",
+        "type": "bakeManifest"
+      }
+    ],
+    "triggers": [
+      {
+        "enabled": true,
+        "expectedArtifactIds": [
+          "bf5111da-4356-4b75-b311-517ecf8cafb7",
+          "34c55180-2055-4119-a334-4f9f12d0c649"
+        ],
+        "payloadConstraints": {},
+        "source": "yangdemo",
+        "type": "webhook"
+      }
+    ],
+    "updateTs": "1562838305000"
+  }
+}

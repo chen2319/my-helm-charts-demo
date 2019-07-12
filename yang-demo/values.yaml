@@ -14,6 +14,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 service:
+  env: dev
   type: NodePort
   port: 80
   nodeport: 30092
