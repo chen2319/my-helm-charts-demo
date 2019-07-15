@@ -17,6 +17,7 @@ service:
   type: NodePort
   port: 80
   nodeport: 30094
+  env: prod
 
 ingress:
   enabled: false

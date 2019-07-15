@@ -17,6 +17,7 @@ service:
   type: NodePort
   port: 80
   nodeport: 30095
+  env: dev
 
 ingress:
   enabled: false
