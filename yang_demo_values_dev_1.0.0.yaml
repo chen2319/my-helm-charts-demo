@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: chen2319/demo
-  tag: release-1.2.6
+  tag: release-1.0.0
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -17,7 +17,7 @@ service:
   type: NodePort
   port: 80
   nodeport: 30094
-  env: prod
+  env: dev
 
 ingress:
   enabled: false
