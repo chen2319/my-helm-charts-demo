@@ -46,7 +46,7 @@
           "customKind": true,
           "id": "2873131a-731d-49b9-a47f-9ba6329ae042",
           "name": "hello word helm",
-          "reference": "https://raw.githubusercontent.com/chen2319/my-helm-charts-demo/master/yang_demo_values_dev.yaml",
+          "reference": "https://raw.githubusercontent.com/chen2319/my-helm-charts-demo/master/yang_demo_values_${parameters[  'env'  ] }_${ templateVariables.version }.yaml",
           "type": "http/file"
         },
         "displayName": "hello-word-helm-dev-yml",
@@ -55,7 +55,7 @@
           "customKind": true,
           "id": "10fe8d84-305a-466f-bf5e-12170eb31380",
           "name": "hello word helm",
-          "reference": "https://raw.githubusercontent.com/chen2319/my-helm-charts-demo/master/yang_demo_values_dev.yaml",
+          "reference": "https://raw.githubusercontent.com/chen2319/my-helm-charts-demo/master/yang_demo_values_${parameters[  'env'  ] }_${ templateVariables.version }.yaml",
           "type": "http/file"
         },
         "useDefaultArtifact": true,

@@ -1,0 +1,19 @@
+{
+  "schema": "v2",
+  "application": "yangdemo",
+  "name": "TestDeployPipeLineFromTemplate-1.1.0",
+  "template": {
+    "artifactAccount": "front50ArtifactCredentials",
+    "reference": "spinnaker://newSpelTemplate4yangdemo",
+    "type": "front50/pipelineTemplate"
+  },
+  "variables": {
+    "version": "1.1.0"
+  },
+  "exclude": [],
+  "triggers": [],
+  "parameters": [],
+  "notifications": [],
+  "description": "",
+  "stages": []
+}
