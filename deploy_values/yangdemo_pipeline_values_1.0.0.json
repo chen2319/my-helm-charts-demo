@@ -1,7 +1,7 @@
 {
   "schema": "v2",
   "application": "yangdemo",
-  "name": "TestDeployPipeLineFromTemplate-1.0.0",
+  "name": "yangdemo-deployment-1.0.0",
   "template": {
     "artifactAccount": "front50ArtifactCredentials",
     "reference": "spinnaker://newSpelTemplate4yangdemo",

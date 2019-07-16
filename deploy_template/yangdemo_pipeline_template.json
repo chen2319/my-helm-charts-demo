@@ -3,7 +3,7 @@
   "variables": [
     {
       "type": "string",
-      "defaultValue": "1.0.0",
+      "defaultValue": "1.1.0",
       "description": "The version of release package",
       "name": "version"
     }
@@ -68,7 +68,22 @@
     "lastModifiedBy": "anonymous",
     "limitConcurrent": true,
     "name": "TestHelmDeploy",
-    "parameterConfig": [],
+    "parameterConfig": [
+      {
+        "default": "",
+        "description": "Deploy Environment",
+        "hasOptions": false,
+        "label": "deploy_env",
+        "name": "env",
+        "options": [
+          {
+            "value": ""
+          }
+        ],
+        "pinned": false,
+        "required": true
+      }
+    ],
     "stages": [
       {
         "account": "my-k8s-v2-account",

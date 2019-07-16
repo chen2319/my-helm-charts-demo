@@ -1,0 +1,40 @@
+{
+  "schema": "v2",
+  "variables": [
+    {
+      "type": "int",
+      "defaultValue": 4331,
+      "description": "The time a wait stage shall pauseth",
+      "name": "timeToWait"
+    }
+  ],
+  "id": "newSpelTemplate",
+  "protect": false,
+  "metadata": {
+    "name": "Variable Wait",
+    "description": "A demonstrative Wait Pipeline.",
+    "owner": "example@example.com",
+    "scopes": [
+      "global"
+    ]
+  },
+  "pipeline": {
+    "lastModifiedBy": "anonymous",
+    "updateTs": "0",
+    "parameterConfig": [],
+    "limitConcurrent": true,
+    "keepWaitingPipelines": false,
+    "description": "",
+    "triggers": [],
+    "notifications": [],
+    "stages": [
+      {
+        "waitTime": "${ templateVariables.timeToWait }",
+        "name": "My Wait Stage",
+        "type": "wait",
+        "refId": "wait1",
+        "requisiteStageRefIds": []
+      }
+    ]
+  }
+}
