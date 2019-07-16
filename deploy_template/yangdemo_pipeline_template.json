@@ -3,7 +3,7 @@
   "variables": [
     {
       "type": "string",
-      "defaultValue": "1.1.0",
+      "defaultValue": "0.1.1",
       "description": "The version of release package",
       "name": "version"
     }
@@ -62,7 +62,6 @@
         "usePriorArtifact": false
       }
     ],
-    "id": "1dcde443-3229-4fec-8858-fb29794bf715",
     "index": 3,
     "keepWaitingPipelines": false,
     "lastModifiedBy": "anonymous",
